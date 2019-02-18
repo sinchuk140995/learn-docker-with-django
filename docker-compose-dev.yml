@@ -10,7 +10,7 @@ services:
     volumes:
       - .:/app
     command: >
-      sh -c "gunicorn -w 2 app.wsgi -b 0.0.0.0:8000"
+      sh -c "python manage.py runserver 0.0.0.0:8000"
     depends_on:
       - postgres
   postgres:
@@ -23,13 +23,5 @@ services:
       POSTGRES_PASSWORD: djangoSecret_pass123
     volumes:
       - /var/lib/postgresql/docker/pgdata:/var/lib/postgresql/data
-  nginx:
-    build:
-      context: .
-      dockerfile: docker/nginx/Dockerfile
-    ports:
-      - 8080:8080
-    depends_on:
-      - app
-    volumes:
-      - .:/app
+
+
