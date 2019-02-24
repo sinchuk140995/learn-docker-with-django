@@ -1,8 +1,8 @@
-FROM python:3.7-alpine
+FROM python:3.6-alpine
 MAINTAINER sinchuk140995@gmail.com
 
-ARG UNAME=app_user
-ARG GNAME=app_group
+ARG UNAME=app-user
+ARG GNAME=app-group
 ARG UID=1000
 ARG GID=1000
 
